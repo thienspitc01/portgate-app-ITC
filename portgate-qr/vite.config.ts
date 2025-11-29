@@ -5,6 +5,7 @@ import react from '@vitejs/plugin-react';
 export default defineConfig({
   plugins: [react()],
   define: {
-    'process.env': process.env
+    // Safely expose ONLY the API_KEY to the client-side code
+    'process.env.API_KEY': JSON.stringify(process.env.API_KEY)
   }
 });
